@@ -1,0 +1,37 @@
+{% extends "::layout/layout.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+
+        <div class="span3">
+                {% include '::modulesUsed/navigation.html.twig' %}
+            </div>	
+
+            <div class="span9">
+                <div class="row">
+                    <div class="span5">
+                        <img src="{{ produit.image.path }}" alt="DevAndClick" width="470" height="310">
+                    </div>
+
+                    <div class="span4">
+                        <h4>{{ produit.nom }}</h4>
+                        <h5>{{ produit.categorie.nom }}</h5>
+                        <p>{{ produit.description }}</p>
+                        <h4>{{ produit.prix }}€</h4>
+                        <form action="panier.php">
+                            <select name="qte" class="span1">
+                                <option>1</option>
+                            </select>
+
+                            <div>
+                                <button class="btn btn-primary">Ajouter au panier</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

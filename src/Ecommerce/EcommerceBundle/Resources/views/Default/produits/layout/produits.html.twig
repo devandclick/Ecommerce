@@ -1,0 +1,47 @@
+{% extends "::layout/layout.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+
+        <div class="span3">
+            {% include '::modulesUsed/navigation.html.twig' %}
+            {% include 'UtilisateursBundle:Default:modulesUsed/utilisateurs.html.twig' %}   
+        </div>
+        
+        <div class="span9">
+            {% if produits|length != 0 %}
+                <ul class="thumbnails">
+                {% for produit in produits %}
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <img src="{{ produit.image.path }}" alt="DevAndClick" width="300" height="150">
+                            <div class="caption">
+                                <h4>{{ produit.nom }}</h4>
+                                <p>{{ produit.prix }} €</p>
+                                <a class="btn btn-primary" href="{{ path('presentation', { 'id' : produit.id }) }}">Plus d'infos</a>
+                                <a class="btn btn-success" href="{{ path('panier') }}">Ajouter au panier</a>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="pagination">
+                    <ul>
+                        <li class="disabled"><span>Précédent</span></li>
+                        <li class="disabled"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">Suivant</a></li>
+                    </ul>
+                </div>
+            {% else %}
+                Aucun produit
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
