@@ -1,0 +1,3 @@
+page:
+    pattern:  /page/{id}
+    defaults: { _controller: PagesBundle:Pages:page }
