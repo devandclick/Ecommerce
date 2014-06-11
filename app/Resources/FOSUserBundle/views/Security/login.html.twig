@@ -1,0 +1,46 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+{% if error %}
+    <div>{{ error|trans }}</div>
+{% endif %}
+<div class="row">
+    <div class="span12">
+        <h2>Connexion</h2>
+        <div id="collapseOne" class="accordion-body collapse in">
+            <div class="accordion-inner">
+                <div class="span4">
+                    <h4>Pas encore inscrit ?</h4>
+                    <em>
+                        nous vous invitons à vous inscrire<br />
+                        afin de passer votre commande et de manger équilibré.
+                    </em>
+                    <br /><br />
+                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">S'inscrire</a>
+
+                </div>
+
+                <div class="span4 offset2">
+                    <h4>Connexion</h4>
+                    <form action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                    <label for="username">{{ 'security.login.username'|trans }}</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+                    <label for="password">{{ 'security.login.password'|trans }}</label>
+                    <input type="password" id="password" name="_password" required="required" />
+                    <br />
+                    <input class="btn btn-primary" type="submit" value="{{ 'security.login.submit'|trans }}" />
+                    </form>
+                </div>
+                <div class="span10">
+                    <a href="{{ path('fos_user_resetting_request') }}">Mot de passe perdu ?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock fos_user_content %}
