@@ -1,0 +1,13 @@
+parameters:
+#    ecommerce.example.class: Ecommerce\EcommerceBundle\Example
+
+services:
+    tva:
+      class: Ecommerce\EcommerceBundle\Twig\Extension\TvaExtension
+      tags:
+        - { name: twig.extension }
+
+    montantTva:
+      class: Ecommerce\EcommerceBundle\Twig\Extension\MontantTvaExtension
+      tags:
+        - { name: twig.extension }
