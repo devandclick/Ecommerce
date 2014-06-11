@@ -1,0 +1,23 @@
+produits:
+    pattern:  /
+    defaults: { _controller: EcommerceBundle:Produits:produits }
+
+presentation:
+    pattern:  /produit/{id}
+    defaults: { _controller: EcommerceBundle:Produits:presentation }
+
+panier:
+    pattern:  /panier
+    defaults: { _controller: EcommerceBundle:Panier:panier }
+
+livraison:
+    pattern:  /panier/livraison
+    defaults: { _controller: EcommerceBundle:Panier:livraison }
+
+validation:
+    pattern:  /panier/validation
+    defaults: { _controller: EcommerceBundle:Panier:validation }
+
+categorieProduits:
+    pattern:  /categorie/{categorie}
+    defaults: { _controller: EcommerceBundle:Produits:categorie }
