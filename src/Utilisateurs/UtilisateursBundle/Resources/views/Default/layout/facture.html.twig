@@ -1,0 +1,58 @@
+{% extends "::layout/layout.html.twig" %} 
+
+{% block body %}
+<div class="container">
+    <div class="row">
+
+        <div class="span3">
+            {% include '::modulesUsed/navigation.html.twig' %}
+            {% include 'UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig' %}   
+            {% render(controller('EcommerceBundle:Panier:menu')) %}
+            </div>				
+            <div class="span9">
+                
+                {% for flashMessage in app.session.flashbag.get('success') %}
+                    <div class="alert alert-success">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+                {% for flashMessage in app.session.flashbag.get('error') %}
+                    <div class="alert alert-errors">
+                        {{ flashMessage }}
+                    </div>
+                {% endfor %}
+                
+                <h2>Factures</h2>
+                <form>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Références</th>
+                                <th>Date</th>
+                                <th>Prix TTC</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if factures|length == 0 %}
+                                <tr>
+                                    <td colspan="4"><center>Ancunne facture actuellement.</center></td>
+                                </tr>
+                            {% endif %}
+                            {% for facture in factures %}
+                            <tr>
+                                <td>ref : {{ facture.reference }}</td>
+                                <td>{{ facture.date|date('d/m/Y') }}</td>
+                                <td>{{ facture.commande.prixTTC }} €</td>
+                                <td><a href="{{ path('facturesPDF', { 'id' : facture.id }) }}" target="_blank"><i class="icon-refresh"></i></a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
