@@ -1,0 +1,18 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body -%}
+    <h1>Produits edit</h1>
+    
+    <form action="{{ path('adminProduits_update', { 'id' : entity.id }) }}" method="POST" {{ form_enctype(edit_form) }}>
+    {{ form(edit_form) }}
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('adminProduits') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

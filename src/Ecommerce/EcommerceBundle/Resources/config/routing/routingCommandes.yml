@@ -1,0 +1,3 @@
+validationCommande:
+    pattern:  /api/banque/{id}
+    defaults: { _controller: EcommerceBundle:Commandes:validationCommande }

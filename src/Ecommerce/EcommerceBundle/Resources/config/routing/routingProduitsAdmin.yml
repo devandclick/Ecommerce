@@ -1,0 +1,30 @@
+adminProduits:
+    pattern:  /
+    defaults: { _controller: "EcommerceBundle:ProduitsAdmin:index" }
+
+adminProduits_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EcommerceBundle:ProduitsAdmin:show" }
+
+adminProduits_new:
+    pattern:  /new
+    defaults: { _controller: "EcommerceBundle:ProduitsAdmin:new" }
+
+adminProduits_create:
+    pattern:  /create
+    defaults: { _controller: "EcommerceBundle:ProduitsAdmin:create" }
+    requirements: { _method: post }
+
+adminProduits_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EcommerceBundle:ProduitsAdmin:edit" }
+
+adminProduits_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EcommerceBundle:ProduitsAdmin:update" }
+    requirements: { _method: post|put }
+
+adminProduits_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EcommerceBundle:ProduitsAdmin:delete" }
+    requirements: { _method: post|delete }
