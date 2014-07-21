@@ -1,0 +1,23 @@
+supprimer:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: EcommerceBundle:Panier:supprimer }
+
+ajouter:
+    pattern:  /ajouter/{id}
+    defaults: { _controller: EcommerceBundle:Panier:ajouter }
+
+panier:
+    pattern:  /
+    defaults: { _controller: EcommerceBundle:Panier:panier }
+
+livraison:
+    pattern:  /livraison
+    defaults: { _controller: EcommerceBundle:Panier:livraison }
+
+validation:
+    pattern:  /validation
+    defaults: { _controller: EcommerceBundle:Panier:validation }
+
+livraisonAdresseSuppression:
+    pattern:  /livraison/adresse/suppression/{id}
+    defaults: { _controller: EcommerceBundle:Panier:adresseSuppression }
