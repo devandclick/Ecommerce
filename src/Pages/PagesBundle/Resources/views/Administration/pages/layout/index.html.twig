@@ -1,0 +1,34 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body -%}
+    <h1>Pages list</h1>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.titre }}</td>
+                <td>
+                    <a href="{{ path('adminPages_show', { 'id': entity.id }) }}"><i class="icon-book"></i></a>
+                    <a href="{{ path('adminPages_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i></a>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('adminPages_new') }}">
+                nouvelle page
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

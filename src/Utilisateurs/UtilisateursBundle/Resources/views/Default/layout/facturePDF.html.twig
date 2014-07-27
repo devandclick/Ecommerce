@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Facture</title>
+        <link href="./css/facture.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1>DevAndClick</h1>
+        <table id="enTete">
+            <tr>
+                <td colspan="1"></td>
+                <td colspan="1"><h1>Facture</h1></td>
+                <td colspan="1"></td>
+            </tr>
+            <tr>
+                <td width="80">Page</td>
+                <td width="100">Date</td>
+                <td width="120">Ref</td>
+            </tr>
+            <tr>
+                <td class="color">[[page_nb]]</td>
+                <td class="color">{{ facture.date|date('d-m-Y') }}</td>
+                <td class="color">{{ facture.reference }}</td>
+            </tr>
+        </table>
+        <ul id="coordonnes">
+            <li>{{ facture.commande.facturation.nom }} {{ facture.commande.facturation.prenom }}</li>
+            <li>{{ facture.commande.facturation.adresse}}</li>
+            <li>{{ facture.commande.facturation.cp }} {{ facture.commande.facturation.ville }} - {{ facture.commande.facturation.pays }}</li>
+        </ul>
+        <table id="entity">
+            <tr>
+                <td width="280">DESIGNATION</td>
+                <td width="105">QUANTITE</td>
+                <td width="100">P.U - HT</td>
+                <td width="105">MONTANT HT</td>
+                <td width="105">MONTANT TTC</td>
+            </tr>
+                {% for produit in facture.commande.produit %}
+                <tr>
+                    <td class="color">{{ produit.reference }}</td>
+                    <td class="color">{{ produit.quantite }}</td>
+                    <td class="color">{{ produit.prixHT }} €</td>
+                    <td class="color">{{ produit.prixHT * produit.quantite }} €</td>
+                    <td class="color">{{ produit.prixTTC * produit.quantite }} €</td>
+                </tr>
+                {% endfor %}
+        </table>
+        <table id="total">
+            <tr>
+                <td width="110">TOTAL HT :</td>
+                <td width="100" class="color">{{ facture.commande.prixHT }} €</td>
+            </tr>
+            {% for key, tva in facture.commande.tva %}
+            <tr>
+                <td width="110">TVA <span class="color min">{{ key }}</span> :</td>
+                <td width="100" class="color">{{ tva }} €</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td width="110">TOTAL TTC :</td>
+                <td width="100" class="color">{{ facture.commande.prixTTC }} €</td>
+            </tr>
+        </table>
+        <div id="footer">
+            <span class="color strong">{{ adresse }}</span>
+            <br />
+            {{ telephone }}
+        </div>
+    </body>
+</html>
