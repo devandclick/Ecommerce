@@ -1,0 +1,30 @@
+adminPages:
+    pattern:  /
+    defaults: { _controller: "PagesBundle:PagesAdmin:index" }
+
+adminPages_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "PagesBundle:PagesAdmin:show" }
+
+adminPages_new:
+    pattern:  /new
+    defaults: { _controller: "PagesBundle:PagesAdmin:new" }
+
+adminPages_create:
+    pattern:  /create
+    defaults: { _controller: "PagesBundle:PagesAdmin:create" }
+    requirements: { _method: post }
+
+adminPages_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "PagesBundle:PagesAdmin:edit" }
+
+adminPages_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "PagesBundle:PagesAdmin:update" }
+    requirements: { _method: post|put }
+
+adminPages_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "PagesBundle:PagesAdmin:delete" }
+    requirements: { _method: post|delete }
