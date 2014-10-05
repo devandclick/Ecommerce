@@ -1,0 +1,26 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row">
+    <div class="span12">
+        <h2>Mot de passe perdu</h2>
+        <div id="collapseOne" class="accordion-body collapse in">
+            <div class="accordion-inner">
+                <div class="span4">
+                    <h4>Récupération du mot de passe ?</h4>
+                    <em>
+                        Compléter le formulaire, votre mot de passe sera alors réinitialiser.<br /><br />
+                        Une fois validé, vous devrez utiliser le nouveau mot de passe que vous avez défini.
+                    </em>
+                </div>
+
+                <div class="span4 offset2">
+                    <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST">
+                        {{ form_widget(form) }}
+                        <br />
+                        <input class="btn btn-primary" type="submit" value="{{ 'resetting.reset.submit'|trans }}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
