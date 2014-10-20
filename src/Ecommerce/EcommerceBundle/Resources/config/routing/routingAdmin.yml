@@ -1,0 +1,3 @@
+admin:
+    pattern:  /
+    defaults: { _controller: EcommerceBundle:CommandesAdmin:commandes }
