@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block titre %}Ecommerce Fruits & légumes - By DevAndClick{% endblock %}</title>
+        <meta name="keywords" content="{% block motsCles %}{% endblock %}" />
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="{{ path('admin') }}">Administration</a>
+                </div>
+            </div>
+        </div>
+            
+        <div class="container">
+            <div class="row">
+                {% include '::modulesUsed/navigationAdmin.html.twig' %}
+                <div class="span9">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <hr />
+	<footer id="footer" class="vspace20">
+            <div class="container">
+            <div class="row">
+                <div class="span4">
+                    <p>&copy; Copyright 2014 - DevAndClick</p>
+                </div>
+            </div>
+	</footer>	
+        <script src="{{ asset('js/jquery-1.10.0.min.js') }}"></script>
+        <script src="{{ asset('../js/bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/pages/ckeditor/ckeditor.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
