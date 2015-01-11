@@ -1,0 +1,34 @@
+{
+    "name": "friendsofsymfony/jsrouting-bundle",
+    "type": "symfony-bundle",
+    "description": "A pretty nice way to expose your Symfony2 routing to client applications.",
+    "keywords": [ "js routing", "routing", "javascript" ],
+    "homepage": "http://friendsofsymfony.github.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "William Durand",
+            "email": "william.durand1@gmail.com"
+        },
+        {
+            "name": "FriendsOfSymfony Community",
+            "homepage": "https://github.com/friendsofsymfony/FOSJsRoutingBundle/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "~2.0",
+        "symfony/serializer": "~2.0",
+        "symfony/console": "~2.0",
+        "willdurand/jsonp-callback-validator": "~1.0"
+    },
+    "autoload": {
+        "psr-0": { "FOS\\JsRoutingBundle": "" }
+    },
+    "target-dir": "FOS/JsRoutingBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.5-dev"
+        }
+    }
+}
