@@ -1,0 +1,11 @@
+adminUtilisateurs:
+    pattern:  /
+    defaults: { _controller: "UtilisateursBundle:UtilisateursAdmin:index" }
+
+adminAdressesUtilisateurs:
+    pattern:  /{id}/adresses
+    defaults: { _controller: "UtilisateursBundle:UtilisateursAdmin:utilisateur" }
+
+adminFacturesUtilisateurs:
+    pattern:  /{id}/factures
+    defaults: { _controller: "UtilisateursBundle:UtilisateursAdmin:utilisateur" }
