@@ -1,0 +1,21 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: ecommerce
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: smtp.gmail.com
+    mailer_user: null
+    mailer_password: null
+    locale: fr
+    mailer_encryption: ssl
+    secret: ThisTokenIsNotSoSecretChangeIt
+twig:
+    globals:
+        telephone: '02 35 00 00 00'
+        fax: '02 35 00 00 00'
+        adresse: 'Paris 75 000 - 3 rue des jardins'
+        pathDefault: 'http://localhost/ecommerce/web/'
