@@ -1,0 +1,12 @@
+parameters:
+#    pages.example.class: Pages\PagesBundle\Example
+
+services:
+    CurlUrl:
+        class: Pages\PagesBundle\Services\CurlUrl
+      
+    validator.check.url:
+        class: Pages\PagesBundle\Validator\Constraints\contraintsCheckUrlValidator
+        arguments: [@CurlUrl]
+        tags:
+            - { name: validator.constraint_validator, alias: validatorCheckUrl }

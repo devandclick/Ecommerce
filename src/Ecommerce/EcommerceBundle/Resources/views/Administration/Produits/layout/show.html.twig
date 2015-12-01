@@ -1,0 +1,44 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body -%}
+    <h1>Produits</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ entity.prix }}</td>
+            </tr>
+            <tr>
+                <th>Disponible</th>
+                <td>{{ entity.disponible }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('adminProduits') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('adminProduits_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
